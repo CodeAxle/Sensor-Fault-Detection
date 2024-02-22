@@ -1,5 +1,6 @@
-pymongo[srv]==4.2.0
+pymongo[tls,srv]==4.2.0
 pandas
+from-root
 scikit-learn
 certifi
 -e .
