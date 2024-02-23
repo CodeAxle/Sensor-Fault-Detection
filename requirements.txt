@@ -1,4 +1,4 @@
-pymongo[tls,srv]==4.2.0
+pymongo
 pandas
 from-root
 scikit-learn
