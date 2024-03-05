@@ -8,7 +8,7 @@ from sensor.constant.database import DATABASE_NAME
 
 class SensorData:
     """
-    This class help to export entirt mongo db record as pandas dataframe
+    This class help to export entire mongo db record as pandas dataframe
     """
 
     def __init__(self):
@@ -37,9 +37,16 @@ class SensorData:
             if "_id" in df.columns.to_list():
                 df = df.drop(columns=[ "_id"], axis=1)
 
-            df.replace({"na":np.nan},inplace=True)  
+            df.infer_objects(copy=False)
+            pd.set_option('future.no_silent_downcasting', True)
+            df.replace({"na":np.nan},inplace=True)
 
             return df
 
         except Exception as e:
             raise SensorException (e,sys)
+        
+"""FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version.
+To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. 
+To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+df.replace({"na":np.nan},inplace=True)"""

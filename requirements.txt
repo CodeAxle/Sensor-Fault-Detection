@@ -1,6 +1,11 @@
 pymongo
 pandas
-from-root
+from-root>=1.0.2
 scikit-learn
+PyYAML
 certifi
+scipy==1.9.3
+ipykernel
+dill
+imblearn==0.0
 -e .
