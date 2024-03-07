@@ -8,4 +8,5 @@ scipy==1.9.3
 ipykernel
 dill
 imblearn==0.0
+xgboost
 -e .
