@@ -10,8 +10,8 @@ from sensor.components.data_transformation import DataTransformation
 from sensor.components.model_trainer import ModelTrainer
 from sensor.components.model_evaluation import ModelEvaluation
 from sensor.cloud_storage.s3_syncer import S3Sync
-from sensor.constant.s3_bucket import*
-from sensor.constant.training_pipeline import*
+from sensor.constant.s3_bucket import TRAINING_BUCKET_NAME
+from sensor.constant.training_pipeline import SAVED_MODEL_DIR
 from sensor.components.model_pusher import ModelPusher
 from sensor.logger import logging
 
@@ -20,9 +20,11 @@ class TrainPipeline:
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
         # self.training_pipeline_config = training_pipeline_config
-        self.data_ingestion_config = DataIngestionConfig()
-        self.data_validation_config = DataValidationConfig()
-        self.data_transformation_config = DataValidationConfig()
+        # self.data_ingestion_config = DataIngestionConfig()
+        # self.data_validation_config = DataValidationConfig()
+        # self.data_transformation_config = DataValidationConfig()
+        self.s3_sync = S3Sync()
+
     def start_data_ingestion(self)-> DataIngestionArtifact:
         try:
             self.data_ingestion_config = DataIngestionConfig(training_pipeline_config=self.training_pipeline_config)
