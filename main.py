@@ -45,7 +45,7 @@ async def train_route():
         train_pipeline = TrainPipeline()
         if train_pipeline.is_pipeline_running:
             return Response("Training pipeline is already running.")
-        train_pipeline.run_pipeline()
+        train_pipeline.run_pipline()
         return Response("Training successful !!")
     except Exception as e:
         return Response(f"Error Occurred! {e}")
